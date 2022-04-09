@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 import spacy
 import random
 
@@ -34,7 +35,9 @@ def chatbot_answer(request: Request):
     answer = find_answer(message)
 
 
-    return {'answer': answer}
+    content = {'answer': answer}
+    headers = {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Content-Type, Authorization"}
+    return JSONResponse(content=content, headers=headers)
 
 def find_answer(msg):
     highest_score = 0
