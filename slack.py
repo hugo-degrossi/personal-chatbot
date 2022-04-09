@@ -1,9 +1,24 @@
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 import spacy
 import random
 
 nlp_en = spacy.load("en_core_web_md")
 app = FastAPI()
+
+
+origins = [
+    "https://hugo-degrossi.fr",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.get("/alive/")
 def chatbot_answer():
@@ -13,8 +28,8 @@ def chatbot_answer():
 @app.get("/message/")
 def chatbot_answer(request: Request):
 
-    #message = nlp_en(request.headers.get('MESSAGE-TEXT'))
-    message = nlp_en('Hello !')
+    message = nlp_en(request.headers.get('MESSAGE-TEXT'))
+    #message = nlp_en('Hello !')
 
     answer = find_answer(message)
 
