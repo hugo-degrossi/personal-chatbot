@@ -4,4 +4,4 @@ gunicorn
 uvloop
 httptools
 spacy
-https://github.com/explosion/spacy-models/releases/download/en_r
+https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.2.0/en_core_web_md-3.2.0.tar.gz#en_core_web_md
