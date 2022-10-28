@@ -112,4 +112,14 @@ intents = [
         "patterns": ["What is your favorite programming language"],
         "responses": ["It must be Python, even if I enjoy any other language!", "I quite enjoy programming in Python these days."],
     },
+    {
+        "tag": "hugo",
+        "patterns": ["Who's Hugo?", "What's Hugo doing?"],
+        "responses": ["Hugo is a 5th year information technology student looking for an end-of-year internship"],
+    },
+    {
+        "tag": "langages",
+        "patterns": ["WHat are Hugo skills?", "What is your skills?", "What do you know"],
+        "responses": ["I know many langages shuch as Python, Java, C#, ... and frameworks like React, Symfony, Spring, ..."],
+    },
 ]
